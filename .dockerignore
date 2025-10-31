@@ -1,0 +1,23 @@
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Misc
+*.md
+README.md
+
+# Exclude non-essential directories
+use_mqtt/
+_peripheral_apps/
+
+# Keep only cms and documents
+!cms/
+!documents/
+

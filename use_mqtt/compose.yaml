@@ -1,0 +1,76 @@
+version: "3.7"
+
+services:
+  # MQTT Broker
+  mqtt5:
+    image: eclipse-mosquitto
+    container_name: mqtt5
+    ports:
+      - "1883:1883" # default mqtt port
+      - "9001:9001" # default mqtt port for websockets
+    volumes:
+      - ./mosquitto/config:/mosquitto/config:rw
+      - ./mosquitto/data:/mosquitto/data:rw
+      - ./mosquitto/log:/mosquitto/log:rw
+    networks:
+      - databus-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "timeout 5 mosquitto_sub -t '$$SYS/#' -C 1 | grep -v Error || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 5s
+
+  # MongoDB Database
+  mongodb:
+    image: mongo:5.0
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - mongodb_config:/data/configdb
+    networks:
+      - databus-network
+    restart: unless-stopped
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # Go Databus API Server
+  databus-api:
+    build:
+      context: ..
+      dockerfile: databus/Dockerfile
+    container_name: databus-api
+    ports:
+      - "8080:8080"
+    environment:
+      - MQTT_BROKER_URL=tcp://mqtt5:1883
+      - MONGODB_URI=mongodb://mongodb:27017
+      - SERVER_ADDRESS=0.0.0.0:8080
+      - DOCUMENTS_PATH=/documents
+    depends_on:
+      mqtt5:
+        condition: service_healthy
+      mongodb:
+        condition: service_healthy
+    networks:
+      - databus-network
+    restart: unless-stopped
+
+volumes:
+  config:
+  data:
+  log:
+  mongodb_data:
+  mongodb_config:
+
+networks:
+  databus-network:
+    name: databus-network
+    driver: bridge

@@ -1,0 +1,50 @@
+[
+    {
+        "Name": "all-lights",
+        "Description": "All Lights",
+        "AllowedDefinitions": [
+            "Amazon-Basic-Smart-Light",
+            "Amazon-Advanced-Smart-Light"
+        ]
+    },
+    {
+        "Name": "bedroom-lights",
+        "Description": "Bedroom lights",
+        "AllowedDefinitions": [
+            "Amazon-Basic-Smart-Light",
+            "Amazon-Advanced-Smart-Light"
+        ]
+    },
+    {
+        "Name": "living-room-lights",
+        "Description": "Living room lights",
+        "AllowedDefinitions": [
+            "Amazon-Basic-Smart-Light",
+            "Amazon-Advanced-Smart-Light"
+        ]
+    },
+    {
+        "Name": "kitchen-lights",
+        "Description": "Kitchen lights",
+        "AllowedDefinitions": [
+            "Amazon-Basic-Smart-Light",
+            "Amazon-Advanced-Smart-Light"
+        ]
+    },
+    {
+        "Name": "kitchen-temperature-sensors",
+        "Description": "Kitchen temperature sensors",
+        "AllowedDefinitions": [
+            "ESP32",
+            "ESP8266"
+        ]
+    },
+    {
+        "Name": "living-room-temperature-sensors",
+        "Description": "Living room temperature sensors",
+        "AllowedDefinitions": [
+            "ESP32",
+            "ESP8266"
+        ]
+    }
+]

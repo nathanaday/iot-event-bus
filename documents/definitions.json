@@ -1,0 +1,98 @@
+[
+    {
+        "Name": "ESP32",
+        "Description": "ESP32 microcontroller",
+        "States": [
+            {
+                "Hex": "0x00",
+                "Label": "off"
+            },
+            {
+                "Hex": "0x01",
+                "Label": "on"
+            }
+        ]
+    },
+    {
+        "Name": "ESP8266",
+        "Description": "ESP8266 microcontroller",
+        "States": [
+            {
+                "Hex": "0x00",
+                "Label": "off"
+            },
+            {
+                "Hex": "0x01",
+                "Label": "on"
+            }
+        ]
+    },
+    {
+        "Name": "Amazon-Basic-Smart-Light",
+        "Description": "Amazon Basic Smart Light",
+        "States": [
+            {
+                "Hex": "0x00",
+                "Label": "off"
+            },
+            {
+                "Hex": "0x01",
+                "Label": "dim"
+            },
+            {
+                "Hex": "0x02",
+                "Label": "bright"
+            }
+        ]
+    },
+    {
+        "Name": "Amazon-Advanced-Smart-Light",
+        "Description": "Amazon Advanced Smart Light with color control",
+        "States": [
+            {
+                "Hex": "0x00",
+                "Label": "off"
+            },
+            {
+                "Hex": "0x01",
+                "Label": "white"
+            },
+            {
+                "Hex": "0x02",
+                "Label": "red"
+            },
+            {
+                "Hex": "0x03",
+                "Label": "green"
+            },
+            {
+                "Hex": "0x04",
+                "Label": "blue"
+            },
+            {
+                "Hex": "0x05",
+                "Label": "yellow"
+            },
+            {
+                "Hex": "0x06",
+                "Label": "purple"
+            },
+            {
+                "Hex": "0x07",
+                "Label": "orange"
+            },
+            {
+                "Hex": "0x08",
+                "Label": "pink"
+            },
+            {
+                "Hex": "0x09",
+                "Label": "brown"
+            },
+            {
+                "Hex": "0x0A",
+                "Label": "cyan"
+            }
+        ]
+    }
+]
