@@ -13,10 +13,13 @@ I still use this project as a reference or base files for building lightweight e
 
 - Use MongoDB to store entity models, rules, and records. 
   - This can be anything with a schema and state (smart lights, sprinklers, sensors...)
+
 - Use the Go-hosted REST API to view or modify entities 
   - (e.g. add a light, view light details, toggle lighting state)
+
 - All entity state changes are emitted by (1) group membership or (2) individual entity using MQTT.
   - e.g. subscribe to `events/{entity_id}`  to catch a message like `{... "entity_id": 0x00, "new_state": 0}`
+
 - Now you have a working event bus you can use to control decently complex population (hundreds, thousands) of sensors, controllers, and devices!
 
 ## What you can do next...
