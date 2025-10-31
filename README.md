@@ -9,18 +9,20 @@
 
 I still use this project as a reference or base files for building lightweight event busses. This project uses a Go application (`databus/`) to interface with a MongDB instance (docker hosted) and announce all entity changes on MQTT (eclipse-mosquitto).
 
-To break it down further:
-- Use MongoDB to store entity models, rules, and records. This can be anything with a schema and state (smart lights, sprinklers, sensors...)
+**To break it down further:
+**- Use MongoDB to store entity models, rules, and records. This can be anything with a schema and state (smart lights, sprinklers, sensors...)
 - Use the Go-hosted REST API to view or modify entities (e.g. add a light, view light details, toggle lighting state)
 - All entity state changes are emitted by (1) group membership or (2) individual entity using MQTT. 
 - Now you have a working event bus you can use to control decently complex networks of sensors, controllers, and devices!
 
-For inspiration, you can use easily adapt this design pattern to:
-- Build a web-based dashboard to toggle smart lights in real time
+## What you can do next...
+
+**For inspiration, you can use easily adapt this design pattern to:
+**- Build a web-based dashboard to toggle smart lights in real time
 - Manage a fleet of micro-controllers from a central controller
 - Connect local smart controller events to a cloud of your choice
 
-## Architecture
+## Service Architecture
 
 - **MQTT Broker (Mosquitto)**: Message broker on ports 1883 (MQTT) and 9001 (WebSockets)
 - **MongoDB**: NoSQL database for persisting device data on port 27017
